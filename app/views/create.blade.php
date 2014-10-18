@@ -1,9 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="es-ES">
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
+@extends('layout')
+
+@section('content')
  
         <div class="row"> 
             <h1 class="subheader">Crear un post con laravel 4</h1>
@@ -52,5 +49,4 @@
             </table>    
              
         </div>
-    </body>
-</html>
+@stop

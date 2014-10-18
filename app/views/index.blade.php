@@ -1,10 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="es-ES">
-    <head>
-        <meta charset="UTF-8">
-        <title>Crud con laravel 4</title>
-    </head>
-    <body>
+@extends('layout')
+
+@section('content')
+
         <div class="row"> 
             <h1 class="subheader">Crud con laravel 4</h1>
             {{ HTML::link(URL::to('crud/create'), 'Crear un nuevo post') }}
@@ -32,5 +29,5 @@
                 </div>
             @endif
         </div>
-    </body>
-</html>
+
+@stop
