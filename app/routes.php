@@ -15,3 +15,32 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+
+Route::get('users', function()
+{
+    $users = User::all();
+
+    return View::make('users')->with('users', $users);
+});
+
+
+//http://localhost/crud_laravel/public/crud/show para ver todos los posts
+Route::get('crud/show', 'CrudController@index');
+//http://localhost/crud_laravel/public/crud/create para ver formulario crear post
+Route::get('crud/create', 'CrudController@create');
+//http://localhost/crud_laravel/public/crud/update/id para ver el formulario actualizar
+Route::get('crud/update/{id}', 'CrudController@update');
+//http://localhost/crud_laravel/public/crud/delete/id para eliminar post
+Route::get('crud/delete/{id}', 'CrudController@delete');
+ 
+//grupo de rutas que aceptan peticiones post, protegemos de ataques csrf
+Route::group(array('before' => 'csrf'), function()
+{
+ 
+    //http://localhost/crud_laravel/public/crud/show para crear post
+    Route::post('crud/create', 'CrudController@create');
+    //http://localhost/crud_laravel/public/crud/update/id para actualizar un post
+    Route::post('crud/update/{id}', 'CrudController@update');
+ 
+});
